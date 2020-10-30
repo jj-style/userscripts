@@ -2,7 +2,7 @@
 // @name         Minerva Styling
 // @namespace    https://github.com/jj-style
 // @version      0.2
-// @description  well we all know Minerva looks like shit
+// @description  well we all know Minerva looks like garbage
 // @author       JJ Style
 // @match        *://*.minerva.leeds.ac.uk/*
 // @grant        GM_addStyle
@@ -34,7 +34,7 @@ span > a > label:hover, #tab-content1 #filterDiv select, #tab-content1 #vleModul
 #alert_container { display:none; !important; }
 `;
 
-//pesky motherfuckers
+//pesky elements that won't go normally
 (function() {
     'use strict';
     GM_addStyle(css);

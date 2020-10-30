@@ -2,7 +2,7 @@
 // @name         Facebook Styling
 // @namespace    https://github.com/jj-style
 // @version      0.1
-// @description  there's a lot of useless shit on facebook. Lets get it back to basics
+// @description  there's a lot of useless stuff on facebook. Lets get it back to basics
 // @author       JJ Style
 // @match        *://*.facebook.com/*
 // @grant        GM_addStyle
@@ -26,7 +26,7 @@ var css = `
 #navItem_302677536798470 { display:none; !important;}
 `;
 
-//pesky motherfuckers
+//pesky elements that won't go normally
 (function() {
     'use strict';
     GM_addStyle(css);
