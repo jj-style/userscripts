@@ -9,21 +9,13 @@
 // ==/UserScript==
 
 var css = `
-#stories_pagelet_below_composer,
-#pagelet_ego_pane
-#navItem_2392950137,
-#navItem_1606854132932955,
-#pagelet_rhc_footer,
-#navItem_193356651002223,
-#navItem_140332009231,
-#navItem_285571681929755,
-#navItem_1433252076974635,
-#navItem_526732794016279,
-#navItem_577076605805053,
-#navItem_977114232337111,
-#navItem_1291706757509010,
-#navItem_280033845760645,
-#navItem_302677536798470 { display:none; !important;}
+div[data-pagelet="VideoChatHomeUnit"],
+div[data-pagelet="Stories"],
+div a[href*="marketplace"],
+div a[href$="/watch/"],
+a[href^="/pages"] > span > span
+{ display:none; !important;}
+
 `;
 
 //pesky elements that won't go normally
