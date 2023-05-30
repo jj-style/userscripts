@@ -17,7 +17,7 @@ let json2end = generatedSource.substring(hitIndex + 13);
 
 // iterate through string until end of json content
 // and then parse to json object
-let idx = 0;
+let index = 0;
 let depth = 0;
 do {
   if (json2end[index] == "{") {
@@ -31,7 +31,7 @@ let data = JSON.parse(json2end.substring(0, index));
 
 // create a list of prices & put in document under the main price
 var el = document.createElement("ul");
-Object.values(j.itemVariationsMap).forEach((item) => {
+Object.values(data.itemVariationsMap).forEach((item) => {
   let li = document.createElement("li");
   li.innerText = item.price;
   el.appendChild(li);
