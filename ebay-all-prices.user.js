@@ -2,7 +2,7 @@
 // @name         Ebay All Prices
 // @description  display all prices for items on ebay
 // @namespace    https://github.com/jj-style
-// @version      0.1
+// @version      0.2
 // @author       JJ Style
 // @match        https://www.ebay.co.uk/itm/*
 // @grant        none
