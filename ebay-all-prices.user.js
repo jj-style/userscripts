@@ -2,7 +2,7 @@
 // @name         Ebay All Prices
 // @description  display all prices for items on ebay
 // @namespace    https://github.com/jj-style
-// @version      0.3
+// @version      0.4
 // @author       JJ Style
 // @match        *://*.ebay.co.uk/itm/*
 // @match        *://*.ebay.com/itm/*
@@ -41,6 +41,7 @@ var labelLookup = getSelectOptionLookup();
 // create a table of prices & put in document under the main price
 var table = document.createElement("table");
 table.style.borderCollapse = "collapse";
+table.style.width = "100%";
 var header = table.createTHead();
 header.style.borderBottom = "1px solid black";
 var body = table.createTBody();
@@ -80,14 +81,18 @@ Object.values(data.itemVariationsMap).forEach((item, idx) => {
         // to get the value
         var traitLookup = item.traitValuesMap[h] ?? "";
         if (traitLookup !== "") {
-            c.innerText = labelLookup[h][traitLookup] ?? "";
+            if (traitLookup in labelLookup[h]) {
+                c.innerText = labelLookup[h][traitLookup];
+            } else {
+                log(`traitLookup(${traitLookup}) not found in options(${h}) for ${item}`);
+            }
         }
     }
   })
 });
 
-// insert options table on the DOM below the price
-let priceContent = document.getElementsByClassName("x-bin-price__content")[0];
+// insert options table on the DOM below the pictures
+let priceContent = document.getElementById("PicturePanel");
 priceContent.appendChild(table);
 
 // get dictionary of option id to display name for a given node
@@ -102,4 +107,9 @@ function getSelectOptionLookup() {
     var labels = Array.from(document.getElementsByClassName('x-msku__label'));
     var labelLookup = labels.reduce((a,v) => ({...a, [v.innerText]: getSelectOptions(v)}), {});
     return labelLookup;
+}
+
+// logger function for the userscript
+function log(msg) {
+    console.log("[userscript::ebayAllPrices]", msg);
 }
