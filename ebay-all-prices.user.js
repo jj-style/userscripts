@@ -2,7 +2,7 @@
 // @name         Ebay All Prices
 // @description  display all prices for items on ebay
 // @namespace    https://github.com/jj-style
-// @version      0.4
+// @version      0.5
 // @author       JJ Style
 // @match        *://*.ebay.co.uk/itm/*
 // @match        *://*.ebay.com/itm/*
@@ -105,7 +105,7 @@ function getSelectOptions(v) {
 // get a dictionary of selection name to a nested dictionary of option id to display name
 function getSelectOptionLookup() {
     var labels = Array.from(document.getElementsByClassName('x-msku__label'));
-    var labelLookup = labels.reduce((a,v) => ({...a, [v.innerText]: getSelectOptions(v)}), {});
+    var labelLookup = labels.reduce((a,v) => ({...a, [v.getElementsByClassName('x-msku__label-text')[0].innerText]: getSelectOptions(v)}), {});
     return labelLookup;
 }
 
